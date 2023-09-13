@@ -6,7 +6,7 @@
 
 @layer components {
     .progress-circle {
-        @apply w-10 h-10 border-2 border-white rounded-[50%] font-[500] flex items-center justify-center text-xl
+        @apply w-8 h-8 border-2 border-white rounded-[50%] font-[500] flex items-center justify-center text-sm
     }
 
     .progress-circle.active {

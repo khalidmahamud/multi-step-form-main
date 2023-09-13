@@ -1,59 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Multi-step form</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/script.js" defer></script>
-</head>
-<body>
+    <title>Frontend Mentor | Multi-step form</title>
 
-  <main class="font-ubuntu">
-    <div class="min-h-screen flex flex-col">
-      <!-- Sidebar start -->
-      <div class="relative">
-        <picture class="z-[-1]">
-          <source
-            media="(min-width: 1024px)"
-            srcset="./images/bg-sidebar-mobile"
-          />
-          <img
-            class="w-full "
-            src="./images/bg-sidebar-mobile.svg"
-            alt=""
-            aria-hidden="true"
-          />
-        </picture>
-        <div class="flex gap-4 absolute top-[15%] left-1/2 -translate-x-1/2 text-white">
-          <div data-id="step-1" class="progress-circle active">1</div>
-          <div data-id="step-2" class="progress-circle">2</div>
-          <div data-id="step-3" class="progress-circle">3</div>
-          <div data-id="step-4" class="progress-circle">4</div>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js" defer></script>
+  </head>
+  <body>
+    <main
+      class="font-ubuntu w-screen h-screen lg:flex lg:justify-center lg:items-center bg-Light-blue"
+    >
+      <div
+        class="h-full lg:h-auto flex flex-col lg:flex-row lg:gap-0 w-full lg:max-w-3xl mx-auto lg:rounded-lg lg:p-5 bg-white"
+      >
+        <!-- Sidebar start -->
+        <div class="relative">
+          <picture class="z-[-1]">
+            <source
+              media="(min-width: 1024px)"
+              srcset="./images/bg-sidebar-desktop.svg"
+            />
+            <img
+              class="w-full lg:w-[365px]"
+              src="./images/bg-sidebar-mobile.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </picture>
+          <div
+            class="flex lg:flex-col gap-4 lg:gap-8 absolute top-[15%] lg:top-[2rem] left-1/2 lg:left-[2rem] -translate-x-1/2 lg:translate-x-0 text-white"
+          >
+            <div class="flex items-center gap-3 text-xs">
+              <span data-id="step-1" class="progress-circle active">1</span>
+              <div class="hidden lg:flex flex-col">
+                <p class="text-white uppercase text-opacity-30">Step 1</p>
+                <p class="uppercase text-white font-[500]">Your Info</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <span data-id="step-2" class="progress-circle">2</span>
+              <div class="hidden lg:flex flex-col">
+                <p class="text-white uppercase text-opacity-30">Step 2</p>
+                <p class="uppercase text-white font-[500]">Select Plan</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <span data-id="step-3" class="progress-circle">3</span>
+              <div class="hidden lg:flex flex-col">
+                <p class="text-white uppercase text-opacity-30">Step 3</p>
+                <p class="uppercase text-white font-[500]">add-ons</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <span data-id="step-4" class="progress-circle">4</span>
+              <div class="hidden lg:flex flex-col">
+                <p class="text-white uppercase text-opacity-30">Step 4</p>
+                <p class="uppercase text-white font-[500]">summary</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sidebar end -->
+        <div
+          class="w-full h-full lg:h-auto lg:px-20 bg-Magnolia lg:bg-white px-5 relative"
+        >
+          <!-- Step 1 start -->
+          <div
+            id="step-1"
+            class="w-full h-full lg:py-5 flex flex-col justify-between"
+          >
+            <div
+              class="w-full h-auto lg:h-full rounded-lg px-6 py-8 lg:p-0 bg-white -translate-y-[20%] lg:translate-y-0 flex flex-col gap-3 shadow-lg lg:shadow-none"
+            >
+              <h1 class="text-2xl lg:text-3xl text-Marine-blue font-bold">
+                Personal info
+              </h1>
+              <p class="text-Cool-gray">
+                Please provide your name, email, address, and phone number.
+              </p>
+              <form
+                action=""
+                class="flex flex-col gap-4 text-Marine-blue text-sm"
+              >
+                <div>
+                  <label for="name" class="block">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="w-full px-3 py-1.5 border-2 border-Light-gray rounded-[.25rem] focus:outline-Purplish-blue font-[500]"
+                    required
+                    placeholder="e.g. Stephen King"
+                  />
+                </div>
+                <div>
+                  <label for="email" class="block">Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="w-full px-3 py-1.5 border-2 border-Light-gray rounded-[.25rem] focus:outline-Purplish-blue font-[500]"
+                    required
+                    placeholder="e.g. stephenking@lorem.com"
+                  />
+                </div>
+                <div>
+                  <label for="phone" class="block">Phone Number</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    class="w-full px-3 py-1.5 border-2 border-Light-gray rounded-[.25rem] focus:outline-Purplish-blue font-[500]"
+                    required
+                    placeholder="e.g. +1 234 567 890"
+                  />
+                </div>
+              </form>
+            </div>
+
+            <div
+              class="w-full p-5 lg:p-0 bg-white absolute bottom-0 left-0 lg:static flex items-center justify-end"
+            >
+              <button
+                class="next-btn btn bg-Marine-blue text-white px-4 py-3 rounded-md hover:bg-opacity-90"
+              >
+                Next Step
+              </button>
+            </div>
+          </div>
+          <!-- Step 1 end -->
+          <!-- Step 2 start -->
+          <!-- Step 2 end -->
+          <!-- Step 3 start -->
+          <!-- Step 3 end -->
+          <!-- Step 4 start -->
+          <!-- Dynamically add subscription and add-on selections here -->
+          <!-- Step 4 end -->
+          <!-- Step 5 start -->
+          <!-- Step 5 end -->
         </div>
       </div>
-      <!-- Sidebar end -->
-      <div class="w-full h-[70vh] bg-Magnolia px-5">
-        <!-- Step 1 start -->
-        <div id="step-1" class="w-full h-full rounded-lg">
-
-        </div>
-        <!-- Step 1 end -->
-        <!-- Step 2 start -->
-        <!-- Step 2 end -->
-        <!-- Step 3 start -->
-        <!-- Step 3 end -->
-        <!-- Step 4 start -->
-        <!-- Dynamically add subscription and add-on selections here -->
-        <!-- Step 4 end -->
-        <!-- Step 5 start -->
-        <!-- Step 5 end -->
-      </div>
-    </div>
-  </main>
-</body>
+    </main>
+  </body>
 </html>
