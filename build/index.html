@@ -22,7 +22,7 @@
       class="font-ubuntu w-full h-full md:flex md:justify-center md:items-center bg-Light-blue"
     >
       <div
-        class="h-full md:h-auto flex flex-col md:flex-row md:gap-0 w-full max-w-3xl mx-auto md:rounded-lg md:p-5 bg-white"
+        class="h-full md:h-auto flex flex-col md:flex-row md:gap-0 w-full max-w-4xl mx-auto md:rounded-lg md:p-5 bg-white"
       >
         <!-- Sidebar start -->
         <div class="relative">
@@ -41,29 +41,41 @@
           <div
             class="flex md:flex-col gap-4 md:gap-8 absolute top-[15%] md:top-[2rem] left-1/2 md:left-[2rem] -translate-x-1/2 md:translate-x-0 text-white"
           >
-            <div data-id="step-1" class="step-progress flex items-center gap-3 text-xs">
-              <span  class="progress-circle active">1</span>
+            <div
+              data-id="step-1"
+              class="step-progress flex items-center gap-3 text-xs"
+            >
+              <span class="progress-circle active">1</span>
               <div class="hidden md:flex flex-col">
                 <p class="text-white uppercase text-opacity-30">Step 1</p>
                 <p class="uppercase text-white font-[500]">Your Info</p>
               </div>
             </div>
-            <div data-id="step-2" class="step-progress flex items-center gap-3 text-xs">
-              <span  class="progress-circle">2</span>
+            <div
+              data-id="step-2"
+              class="step-progress flex items-center gap-3 text-xs"
+            >
+              <span class="progress-circle">2</span>
               <div class="hidden md:flex flex-col">
                 <p class="text-white uppercase text-opacity-30">Step 2</p>
                 <p class="uppercase text-white font-[500]">Select Plan</p>
               </div>
             </div>
-            <div data-id="step-3" class="step-progress flex items-center gap-3 text-xs">
-              <span  class="progress-circle">3</span>
+            <div
+              data-id="step-3"
+              class="step-progress flex items-center gap-3 text-xs"
+            >
+              <span class="progress-circle">3</span>
               <div class="hidden md:flex flex-col">
                 <p class="text-white uppercase text-opacity-30">Step 3</p>
                 <p class="uppercase text-white font-[500]">add-ons</p>
               </div>
             </div>
-            <div data-id="step-4" class="step-progress flex items-center gap-3 text-xs">
-              <span  class="progress-circle">4</span>
+            <div
+              data-id="step-4"
+              class="step-progress flex items-center gap-3 text-xs"
+            >
+              <span class="progress-circle">4</span>
               <div class="hidden md:flex flex-col">
                 <p class="text-white uppercase text-opacity-30">Step 4</p>
                 <p class="uppercase text-white font-[500]">summary</p>
@@ -81,7 +93,7 @@
             class="steps active hidden w-full h-full md:py-5 flex-col justify-between"
           >
             <div
-              class="w-full h-auto md:h-full rounded-lg px-6 py-8 md:p-0 bg-white -translate-y-[20%] md:translate-y-0 flex flex-col gap-3 shadow-lg md:shadow-none"
+              class="w-full h-auto md:h-full rounded-lg px-6 py-8 md:p-0 bg-white -translate-y-[4.5rem] md:translate-y-0 flex flex-col gap-3 shadow-lg md:shadow-none"
             >
               <h1 class="text-2xl md:text-3xl text-Marine-blue font-bold">
                 Personal info
@@ -96,9 +108,14 @@
                 <div>
                   <div class="flex justify-between mb-1">
                     <label for="name">Name</label>
-                    <p data-id="name" class="invalid-msg hidden text-Strawberry-red font-semibold">This field is required</p>
+                    <p
+                      data-id="name"
+                      class="invalid-msg hidden text-Strawberry-red font-semibold"
+                    >
+                      This field is required
+                    </p>
                   </div>
-                  <input 
+                  <input
                     type="text"
                     name="name"
                     id="name"
@@ -110,7 +127,12 @@
                 <div>
                   <div class="flex justify-between mb-1">
                     <label for="email">Email Address</label>
-                    <p data-id="email" class="invalid-msg hidden text-Strawberry-red font-semibold">This field is required</p>
+                    <p
+                      data-id="email"
+                      class="invalid-msg hidden text-Strawberry-red font-semibold"
+                    >
+                      This field is required
+                    </p>
                   </div>
                   <input
                     type="email"
@@ -124,7 +146,12 @@
                 <div>
                   <div class="flex justify-between mb-1">
                     <label for="phone">Phone Number</label>
-                    <p data-id="phone" class="invalid-msg hidden text-Strawberry-red font-semibold">This field is required</p>
+                    <p
+                      data-id="phone"
+                      class="invalid-msg hidden text-Strawberry-red font-semibold"
+                    >
+                      This field is required
+                    </p>
                   </div>
                   <input
                     type="tel"
@@ -150,7 +177,111 @@
           </div>
           <!-- Step 1 end -->
           <!-- Step 2 start -->
-          
+          <div
+            id="step-2"
+            class="steps hidden w-full md:h-full md:py-5 flex-col justify-between"
+          >
+            <div
+              class="w-full h-auto md:h-full rounded-lg px-6 py-8 md:p-0 bg-white -translate-y-[4.5rem] md:translate-y-0 flex flex-col gap-3 shadow-lg md:shadow-none"
+            >
+              <h1 class="text-2xl md:text-3xl text-Marine-blue font-bold">
+                Select your plan
+              </h1>
+              <p class="text-Cool-gray">
+                You have the option of monthly or yearly billing.
+              </p>
+              <form
+                action=""
+                class="flex flex-col gap-4 text-Marine-blue text-sm"
+              >
+                <div class="w-full flex flex-col lg:grid lg:grid-cols-3 gap-3">
+                  <div
+                    class="plans w-full p-5 flex lg:flex-col gap-3 lg:gap-8 justify-start border-2 border-Cool-gray rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                    >
+                      <g fill="none" fill-rule="evenodd">
+                        <circle cx="20" cy="20" r="20" fill="#FFAF7E" />
+                        <path
+                          fill="#FFF"
+                          fill-rule="nonzero"
+                          d="M24.995 18.005h-3.998v5.998h-2v-5.998H15a1 1 0 0 0-1 1V29a1 1 0 0 0 1 1h9.995a1 1 0 0 0 1-1v-9.995a1 1 0 0 0-1-1Zm-5.997 8.996h-2v-1.999h2v2Zm2-11.175a2.999 2.999 0 1 0-2 0v2.18h2v-2.18Z"
+                        />
+                      </g>
+                    </svg>
+                    <div>
+                      <p class="text-Marine-blue text-lg font-[500]">Arcade</p>
+                      <p class="text-Cool-gray text-sm font-[500]">$9/mo</p>
+                    </div>
+                  </div>
+                  <div
+                    class="plans w-full p-5 flex lg:flex-col gap-3 lg:gap-8 justify-start border-2 border-Cool-gray rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                    >
+                      <g fill="none" fill-rule="evenodd">
+                        <circle cx="20" cy="20" r="20" fill="#F9818E" />
+                        <path
+                          fill="#FFF"
+                          fill-rule="nonzero"
+                          d="M25.057 15H14.944C12.212 15 10 17.03 10 19.885c0 2.857 2.212 4.936 4.944 4.936h10.113c2.733 0 4.943-2.08 4.943-4.936S27.79 15 25.057 15ZM17.5 20.388c0 .12-.108.237-.234.237h-1.552v1.569c0 .126-.138.217-.259.217H14.5c-.118 0-.213-.086-.213-.203v-1.583h-1.569c-.126 0-.217-.139-.217-.26v-.956c0-.117.086-.213.202-.213h1.584v-1.554c0-.125.082-.231.203-.231h.989c.12 0 .236.108.236.234v1.551h1.555c.125 0 .231.083.231.204v.988Zm5.347.393a.862.862 0 0 1-.869-.855c0-.472.39-.856.869-.856.481 0 .87.384.87.856 0 .471-.389.855-.87.855Zm1.9 1.866a.86.86 0 0 1-.87-.852.86.86 0 0 1 .87-.855c.48 0 .87.38.87.855a.86.86 0 0 1-.87.852Zm0-3.736a.862.862 0 0 1-.87-.854c0-.472.39-.856.87-.856s.87.384.87.856a.862.862 0 0 1-.87.854Zm1.899 1.87a.862.862 0 0 1-.868-.855c0-.472.389-.856.868-.856s.868.384.868.856a.862.862 0 0 1-.868.855Z"
+                        />
+                      </g>
+                    </svg>
+                    <div>
+                      <p class="text-Marine-blue text-lg font-[500]">
+                        Advanced
+                      </p>
+                      <p class="text-Cool-gray text-sm font-[500]">$9/mo</p>
+                    </div>
+                  </div>
+                  <div
+                    class="plans w-full p-5 flex lg:flex-col gap-3 lg:gap-8 justify-start border-2 border-Cool-gray rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                    >
+                      <g fill="none" fill-rule="evenodd">
+                        <circle cx="20" cy="20" r="20" fill="#483EFF" />
+                        <path
+                          fill="#FFF"
+                          fill-rule="nonzero"
+                          d="M26.666 13H13.334A3.333 3.333 0 0 0 10 16.333v7.193a3.447 3.447 0 0 0 2.14 3.24c1.238.5 2.656.182 3.56-.8L18.52 23h2.96l2.82 2.966a3.2 3.2 0 0 0 3.56.8 3.447 3.447 0 0 0 2.14-3.24v-7.193A3.333 3.333 0 0 0 26.666 13Zm-9.333 6H16v1.333a.667.667 0 0 1-1.333 0V19h-1.333a.667.667 0 0 1 0-1.334h1.333v-1.333a.667.667 0 1 1 1.333 0v1.333h1.333a.667.667 0 1 1 0 1.334Zm7.333 2a2.667 2.667 0 1 1 0-5.333 2.667 2.667 0 0 1 0 5.333ZM26 18.333a1.333 1.333 0 1 1-2.667 0 1.333 1.333 0 0 1 2.667 0Z"
+                        />
+                      </g>
+                    </svg>
+                    <div>
+                      <p class="text-Marine-blue text-lg font-[500]">Pro</p>
+                      <p class="text-Cool-gray text-sm font-[500]">$9/mo</p>
+                    </div>
+                  </div>
+                </div>
+                <div></div>
+              </form>
+            </div>
+
+            <div
+              class="w-full p-5 md:p-0 bg-white absolute bottom-0 left-0 md:static flex items-center justify-between"
+            >
+              <button class="go-back-btn text-Cool-gray">Go Back</button>
+              <button
+                class="next-btn btn bg-Marine-blue text-white px-4 py-3 rounded-md hover:bg-opacity-90"
+              >
+                Next Step
+              </button>
+            </div>
+          </div>
           <!-- Step 2 end -->
           <!-- Step 3 start -->
           <!-- Step 3 end -->
