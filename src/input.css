@@ -16,4 +16,12 @@
     .border {
         @apply border-2 border-red-500
     }
+
+    #step-1 input.invalid {
+        @apply border-Strawberry-red
+    }
+
+    .steps.active {
+        @apply flex
+    }
 }
