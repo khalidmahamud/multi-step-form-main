@@ -25,5 +25,19 @@
         @apply flex
     }
 
-    
+    .plans.selected {
+        @apply border-Purplish-blue bg-Alabaster
+    }
+
+    .plan-durations .plan-duration.selected {
+        @apply text-Marine-blue
+    }
+
+    .slide {
+        @apply justify-end
+    }
+
+    .plans .plan-price.selected {
+        @apply block
+    }
 }
