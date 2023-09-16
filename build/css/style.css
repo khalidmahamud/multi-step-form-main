@@ -968,6 +968,10 @@ video {
     height: 100%;
   }
 
+  .md\:max-h-full{
+    max-height: 100%;
+  }
+
   .md\:w-\[365px\]{
     width: 365px;
   }
