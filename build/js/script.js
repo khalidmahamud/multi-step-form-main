@@ -1,7 +1,7 @@
 const step1 = document.querySelector('#step-1');
 const userInputs = document.querySelectorAll('#step-1 input');
 const nextBtn = document.querySelectorAll('.next-btn');
-const goBackBtn = document.querySelector('.go-back-btn');
+const goBackBtn = document.querySelectorAll('.go-back-btn');
 
 const userInfo = {};
 
@@ -9,9 +9,12 @@ const plans = document.querySelectorAll('.plans');
 const planDurations = document.querySelector('.plan-durations');
 const planDurationBtn = planDurations.querySelectorAll('.plan-duration');
 const slider = planDurations.querySelector('#slider');
-let planPrices = document.querySelectorAll('.plans .plan-price');
+let planPrices = document.querySelectorAll('.plans .price-text');
 
-let currentStep = document.querySelector('#step-1');
+let addOns = document.querySelectorAll('.add-on');
+const addOnCheck = document.querySelectorAll('.add-on-check');
+
+let currentStep;
 
 let currentProgress, currentProgressCircle;
 
@@ -20,12 +23,14 @@ let nextStep, nextProgress, nextProgressCircle;
 
 let currentPlan;
 let selectedPlan;
-let selectedPlanPrice;
+let selectedPlanPrice, addOnPrice = 0;
 
 let currentPlanDuration = planDurations.querySelector('.plan-duration.selected');
 let selectedPlanDuration;
 
 window.addEventListener('DOMContentLoaded', () => {
+    currentStep = document.querySelector('#step-1');
+
     currentProgress = document.querySelector(`.step-progress[data-id=${currentStep.id}]`);
     currentProgressCircle = currentProgress.querySelector('.progress-circle');
 
@@ -45,7 +50,7 @@ function saveUserInfo() {
 }
 
 function getPlanPrice() {
-    let currentPlanPrice = currentPlan.querySelector('.plan-price.selected');
+    let currentPlanPrice = currentPlan.querySelector('.price-text');
     let currentPlanPriceAmount = currentPlanPrice.querySelector('.price-amount'); 
     
     selectedPlanPrice = Number(currentPlanPriceAmount.textContent);
@@ -61,10 +66,6 @@ function goToNextStep() {
     nextStep.classList.add('active');
     nextProgressCircle.classList.add('active');
 
-    prevStep = currentStep;
-    prevProgress = currentProgress;
-    prevProgressCircle = currentProgressCircle;
-
     currentStep = nextStep;
     currentProgress = nextProgress;
     currentProgressCircle = nextProgressCircle;
@@ -74,24 +75,19 @@ function goToPrevStep() {
     currentStep.classList.remove('active');
     currentProgressCircle.classList.remove('active');
 
+    prevStep = currentStep.previousElementSibling;
+    prevProgress = currentProgress.previousElementSibling;
+    prevProgressCircle = prevProgress.querySelector('.progress-circle');
     prevStep.classList.add('active');
     prevProgressCircle.classList.add('active');
-
-    nextStep = currentStep;
-    nextProgress = currentProgress;
-    nextProgressCircle = currentProgressCircle;
 
     currentStep = prevStep;
     currentProgress = prevProgress;
     currentProgressCircle = prevProgressCircle;
 }
 
-
-
-nextBtn.forEach(btn => {
-    btn.addEventListener('click', () => {
-        if (btn.dataset.id === 'step-1') {
-            let allInputValid = true;
+function isValid() {
+    let allInputValid = true;
 
             userInputs.forEach(input => {
                 const invalidMsg = document.querySelector(`p[data-id=${input.id}]`);
@@ -110,7 +106,49 @@ nextBtn.forEach(btn => {
                 }
             });
 
-            if (allInputValid) {
+    return allInputValid;
+}
+
+function changePrice() {
+    const priceText = document.querySelectorAll('.price-text');
+
+    priceText.forEach(text => {
+        const priceAmount = text.querySelector('.price-amount').textContent;
+        
+        if(selectedPlanDuration === 'monthly') {
+            text.innerHTML = `$<span class="price-amount">${Number(priceAmount) / 10}</span>/mo`;
+        } else {
+            text.innerHTML = `$<span class="price-amount">${Number(priceAmount) * 10}</span>/yr`;
+        }
+    });
+}
+
+function getAddOnPrice() {
+    addOnPrice = 0;
+
+    addOns = document.querySelectorAll('.add-on');
+
+    addOns.forEach(addOn => {
+        if(addOn.classList.contains('selected')) {
+            const addOnPriceAmount = addOn.querySelector('.price-amount');
+            
+            addOnPrice += Number(addOnPriceAmount.textContent);
+        }
+    });
+
+    
+}
+
+function getTotalPrice() {
+    return total = selectedPlanPrice + addOnPrice;
+}
+
+
+
+nextBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (btn.dataset.id === 'step-1') {
+            if (isValid()) {
                 saveUserInfo();
                 goToNextStep();
             }
@@ -119,11 +157,17 @@ nextBtn.forEach(btn => {
             getPlanPrice();
             goToNextStep();
         }
+        else if(btn.dataset.id === 'step-3') {
+            getAddOnPrice();
+            // goToNextStep();
+        }
     });
 });
 
-goBackBtn.addEventListener('click', () => {
-    goToPrevStep();
+goBackBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        goToPrevStep();
+    });
 });
 
 plans.forEach(plan => {
@@ -135,6 +179,7 @@ plans.forEach(plan => {
 
             currentPlan = plan;
             selectedPlan = currentPlan.id;
+            
             getPlanPrice();
         }
     });
@@ -154,21 +199,22 @@ planDurationBtn.forEach(durationBtn => {
             currentPlanDuration = durationBtn;
             selectedPlanDuration = currentPlanDuration.id;
 
-            if (selectedPlanDuration === 'monthly') {
-                plans.forEach(plan => {
-                    plan.querySelector('.monthly-plan-price').classList.add('selected');
-                });
-
-                planPrices = document.querySelectorAll('.monthly-plan-price');
-            } else {
-                plans.forEach(plan => {
-                    plan.querySelector('.yearly-plan-price').classList.add('selected');
-                });
-
-                planPrices = document.querySelectorAll('.yearly-plan-price');
-            }
-
+            changePrice();
             getPlanPrice();
+        }
+    });
+});
+
+addOns.forEach(addOn => {
+    const checkbox = addOn.querySelector('input[type=checkbox]');
+
+    addOn.addEventListener('click', () => {
+        if (checkbox.checked) {
+            checkbox.checked = false;
+            addOn.classList.remove('selected');
+        } else {
+            checkbox.checked = true;
+            addOn.classList.add('selected');
         }
     });
 });

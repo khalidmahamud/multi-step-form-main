@@ -40,4 +40,8 @@
     .plans .plan-price.selected {
         @apply block
     }
+
+    .add-on.selected {
+        @apply border-Purplish-blue bg-Alabaster
+    }
 }

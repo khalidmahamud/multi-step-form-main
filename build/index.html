@@ -218,18 +218,11 @@
                     <div>
                       <p class="text-Marine-blue font-[500]">Arcade</p>
                       <p
-                        class="plan-price monthly-plan-price selected hidden text-Cool-gray text-xs font-[500]"
+                        class="price-text text-Cool-gray text-xs font-[500]"
                       >
                         $<span class="price-amount">9</span>/mo
                       </p>
-                      <p
-                        class="plan-price yearly-plan-price hidden text-Cool-gray text-xs font-[500]"
-                      >
-                        $<span class="price-amount">90</span>/yr
-                        <span class="mt-1 text-Marine-blue block"
-                          >2 months free</span
-                        >
-                      </p>
+                      
                     </div>
                   </div>
                   <div
@@ -256,18 +249,11 @@
                         Advanced
                       </p>
                       <p
-                       class="plan-price monthly-plan-price selected hidden text-Cool-gray text-xs font-[500]"
+                       class="price-text text-Cool-gray text-xs font-[500]"
                       >
                         $<span class="price-amount">12</span>/mo
                       </p>
-                      <p
-                        class="plan-price yearly-plan-price hidden text-Cool-gray text-xs font-[500]"
-                      >
-                        $<span class="price-amount">120</span>/yr
-                        <span class="mt-1 text-Marine-blue block"
-                          >2 months free</span
-                        >
-                      </p>
+                      
                     </div>
                   </div>
                   <div
@@ -292,18 +278,11 @@
                     <div>
                       <p class="text-Marine-blue font-[500]">Pro</p>
                       <p
-                        class="plan-price monthly-plan-price selected hidden text-Cool-gray text-xs font-[500]"
+                        class="price-text text-Cool-gray text-xs font-[500]"
                       >
                         $<span class="price-amount">15</span>/mo
                       </p>
-                      <p
-                        class="plan-price yearly-plan-price hidden text-Cool-gray text-xs font-[500]"
-                      >
-                        $<span class="price-amount">150</span>/yr
-                        <span class="mt-1 text-Marine-blue block"
-                          >2 months free</span
-                        >
-                      </p>
+                      
                     </div>
                   </div>
                 </div>
@@ -348,7 +327,74 @@
           </div>
           <!-- Step 2 end -->
           <!-- Step 3 start -->
-          <div></div>
+          <div
+            id="step-3"
+            class="steps hidden w-full h-full md:py-5 flex-col justify-between"
+          >
+            <div
+              class="w-[calc(100%-40px)] mx-auto md:w-full h-auto md:h-full rounded-lg px-6 py-8 md:p-0 bg-white -translate-y-[4.5rem] md:translate-y-0 flex flex-col gap-3 shadow-lg md:shadow-none"
+            >
+              <h1 class="text-2xl md:text-3xl text-Marine-blue font-bold">
+                Pick add-ons
+              </h1>
+              <p class="text-Cool-gray">
+                Add-ons help enhance your gaming experience.
+              </p>
+              <form
+                action=""
+                class="flex flex-col gap-4 text-Marine-blue text-sm"
+              >
+                <div class="add-ons flex flex-col gap-3">
+                  <div class="add-on flex cursor-pointer items-center justify-between p-3 border-2 border-Light-gray rounded-lg">
+                    <div class="flex items-center gap-3">
+                      <input class="add-on-check" type="checkbox" class="w-4 h-4">
+                      <div>
+                        <p class="font-[500] text-[1rem] text-Marine-blue">Online service</p>
+                        <p class="text-Cool-gray">Access to multiplayer games</p>
+                      </div>
+                    </div>
+                    <p class="price-text text-Purplish-blue before:content-['+']">$<span class="price-amount">1</span>/mo</p>
+                  </div>
+
+                  <div class="add-on flex cursor-pointer items-center justify-between p-3 border-2 border-Light-gray rounded-lg">
+                    <div class="flex items-center gap-3">
+                      <input class="add-on-check" type="checkbox" class="w-4 h-4">
+                      <div>
+                        <p class="font-[500] text-[1rem] text-Marine-blue">Larger Storage</p>
+                        <p class="text-Cool-gray">Extra 1TB of cloud save</p>
+                      </div>
+                    </div>
+                    <p class="price-text text-Purplish-blue before:content-['+']">$<span class="price-amount">2</span>/mo</p>
+                  </div>
+
+                  <div class="add-on flex cursor-pointer items-center justify-between p-3 border-2 border-Light-gray rounded-lg">
+                    <div class="flex items-center gap-3">
+                      <input class="add-on-check" type="checkbox" class="w-4 h-4">
+                      <div>
+                        <p class="font-[500] text-[1rem] text-Marine-blue">Customizable profile</p>
+                        <p class="text-Cool-gray">Custom theme on your profile</p>
+                      </div>
+                    </div>
+                    <p class="price-text text-Purplish-blue before:content-['+']">$<span class="price-amount">2</span>/mo</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div
+            class="w-full p-5 md:p-0 bg-white flex items-center justify-between"
+          >
+            <button class="go-back-btn text-Cool-gray hover:text-Marine-blue">
+              Go Back
+            </button>
+            <button
+              data-id="step-3"
+              class="next-btn btn bg-Marine-blue text-white px-4 py-3 rounded-md hover:bg-opacity-90"
+            >
+              Next Step
+            </button>
+          </div>
+          </div>
           <!-- Step 3 end -->
           <!-- Step 4 start -->
           <!-- Dynamically add subscription and add-on selections here -->
