@@ -159,7 +159,7 @@ nextBtn.forEach(btn => {
         }
         else if(btn.dataset.id === 'step-3') {
             getAddOnPrice();
-            // goToNextStep();
+            goToNextStep();
         }
     });
 });
