@@ -2,6 +2,8 @@ const step1 = document.querySelector('#step-1');
 const userInputs = document.querySelectorAll('#step-1 input');
 const nextBtn = document.querySelectorAll('.next-btn');
 const goBackBtn = document.querySelectorAll('.go-back-btn');
+const confirmBtn = document.querySelector('.confirm-btn');
+const changePlanDurationBtn = document.querySelector('.change-plan-duration-btn');
 
 const userInfo = {};
 
@@ -109,6 +111,24 @@ function isValid() {
     return allInputValid;
 }
 
+function changePlanDuration(durationType) {
+    if (durationType !== currentPlanDuration) {
+        currentPlanDuration.classList.remove('selected');
+        planPrices.forEach(planPriceText => {
+            planPriceText.classList.remove('selected');
+        });
+
+        durationType.classList.add('selected');
+        slider.classList.toggle('slide');
+
+        currentPlanDuration = durationType;
+        selectedPlanDuration = currentPlanDuration.id;
+
+        changePrice();
+        getPlanPrice();
+    }
+}
+
 function changePrice() {
     const priceText = document.querySelectorAll('.price-text');
 
@@ -145,9 +165,43 @@ function getTotalPrice() {
 
 function summary() {
     const summaryPage = document.querySelector('#step-4'); 
-    const selectedPlan = summaryPage.querySelector('.selected-plan-text');
+    const selectedPlanText = summaryPage.querySelector('.selected-plan-text');
+    const selectedPlanPriceText = summaryPage.querySelector('.selected-plan-price-text');
+    const selectedAddOnsSummary = summaryPage.querySelector('.selected-add-ons');
+    const totalPriceSummary = summaryPage.querySelector('.total-summary');
+    selectedAddOnsSummary.innerHTML = '';
+    totalPriceSummary.innerHTML = '';
 
-    selectedPlan.innerHTML = `${selectedPlan} (<span class="selected-plan-duration-text">${selectedPlanDuration}</span>)`
+    selectedPlanText.innerHTML = `${selectedPlan} (<span class="selected-plan-duration-text">${selectedPlanDuration}</span>)`
+
+    if(selectedPlanDuration === 'monthly') {
+        selectedPlanPriceText.textContent = `$${selectedPlanPrice}/mo`;
+
+        totalPriceSummary.innerHTML = 
+    `<p class="text-Cool-gray">Total (per <span class="selected-plan-duration-text lowercase">month</span>)</p>
+    <p class="text-Purplish-blue font-[600] before:content-['+']">$${getTotalPrice()}/mo</p>
+    `;
+    } else {
+        selectedPlanPriceText.textContent = `$${selectedPlanPrice}/yr`;
+        
+        totalPriceSummary.innerHTML = 
+    `<p class="text-Cool-gray">Total (per <span class="selected-plan-duration-text lowercase">year</span>)</p>
+    <p class="text-Purplish-blue font-[600] before:content-['+']">$${getTotalPrice()}/yr</p>
+    `;
+    }
+
+    const selectedAddOns = document.querySelectorAll('.add-on.selected');
+
+    selectedAddOns.forEach(addOn => {
+        const selectedAddOnText = addOn.querySelector('.add-on-text').textContent;
+        const selectedAddOnPriceText = addOn.querySelector('.price-text').textContent;
+
+        selectedAddOnsSummary.innerHTML +=
+        `<div class="flex justify-between items-center">
+            <p class="text-Cool-gray">${selectedAddOnText}</p>
+            <p class="text-Marine-blue before:content-['+']">${selectedAddOnPriceText}</p>
+        </div>`;
+    });
 }
 
 
@@ -167,6 +221,7 @@ nextBtn.forEach(btn => {
         else if(btn.dataset.id === 'step-3') {
             getAddOnPrice();
             goToNextStep();
+            summary();
         }
     });
 });
@@ -193,22 +248,8 @@ plans.forEach(plan => {
 });
 
 planDurationBtn.forEach(durationBtn => {
-    durationBtn.addEventListener('click', () => {
-        if (durationBtn !== currentPlanDuration) {
-            currentPlanDuration.classList.remove('selected');
-            planPrices.forEach(planPriceText => {
-                planPriceText.classList.remove('selected');
-            });
-
-            durationBtn.classList.add('selected');
-            slider.classList.toggle('slide');
-
-            currentPlanDuration = durationBtn;
-            selectedPlanDuration = currentPlanDuration.id;
-
-            changePrice();
-            getPlanPrice();
-        }
+    durationBtn.addEventListener('click', (e) => {
+        changePlanDuration(e.target);
     });
 });
 
@@ -224,4 +265,17 @@ addOns.forEach(addOn => {
             addOn.classList.add('selected');
         }
     });
+});
+
+changePlanDurationBtn.addEventListener('click', () => {
+    if(currentPlanDuration.id === 'monthly') {
+        const planDurationBtn = document.querySelector('#yearly');
+        changePlanDuration(planDurationBtn);
+    } else {
+        const planDurationBtn = document.querySelector('#monthly');
+        changePlanDuration(planDurationBtn);
+    }
+
+    getAddOnPrice();
+    summary();
 });
