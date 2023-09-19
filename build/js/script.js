@@ -143,6 +143,13 @@ function getTotalPrice() {
     return total = selectedPlanPrice + addOnPrice;
 }
 
+function summary() {
+    const summaryPage = document.querySelector('#step-4'); 
+    const selectedPlan = summaryPage.querySelector('.selected-plan-text');
+
+    selectedPlan.innerHTML = `${selectedPlan} (<span class="selected-plan-duration-text">${selectedPlanDuration}</span>)`
+}
+
 
 
 nextBtn.forEach(btn => {

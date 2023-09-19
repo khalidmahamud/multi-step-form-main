@@ -632,6 +632,10 @@ video {
   margin-top: 1rem;
 }
 
+.mt-2{
+  margin-top: 0.5rem;
+}
+
 .flex{
   display: flex;
 }
@@ -758,9 +762,31 @@ video {
   border-width: 2px;
 }
 
+.border-b{
+  border-bottom-width: 1px;
+}
+
+.border-b-2{
+  border-bottom-width: 2px;
+}
+
 .border-Light-gray{
   --tw-border-opacity: 1;
   border-color: hsl(229 24% 87% / var(--tw-border-opacity));
+}
+
+.border-Alabaster{
+  --tw-border-opacity: 1;
+  border-color: hsl(231 100% 99% / var(--tw-border-opacity));
+}
+
+.border-Cool-gray{
+  --tw-border-opacity: 1;
+  border-color: hsl(231 11% 63% / var(--tw-border-opacity));
+}
+
+.border-opacity-50{
+  --tw-border-opacity: 0.5;
 }
 
 .bg-Alabaster{
@@ -788,6 +814,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-Purplish-blue{
+  --tw-bg-opacity: 1;
+  background-color: hsl(243 100% 62% / var(--tw-bg-opacity));
+}
+
 .p-1{
   padding: 0.25rem;
 }
@@ -798,6 +829,10 @@ video {
 
 .p-5{
   padding: 1.25rem;
+}
+
+.p-4{
+  padding: 1rem;
 }
 
 .px-3{
@@ -840,6 +875,14 @@ video {
   padding-bottom: 2rem;
 }
 
+.pt-3{
+  padding-top: 0.75rem;
+}
+
+.pb-3{
+  padding-bottom: 0.75rem;
+}
+
 .font-ubuntu{
   font-family: Ubuntu, sans-serif;
 }
@@ -875,8 +918,16 @@ video {
   font-weight: 600;
 }
 
+.font-\[600\]{
+  font-weight: 600;
+}
+
 .uppercase{
   text-transform: uppercase;
+}
+
+.lowercase{
+  text-transform: lowercase;
 }
 
 .text-Cool-gray{
@@ -908,6 +959,10 @@ video {
   --tw-text-opacity: 0.3;
 }
 
+.underline{
+  text-decoration-line: underline;
+}
+
 .shadow-lg{
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -931,6 +986,16 @@ video {
 .before\:content-\[\'\+\'\]::before{
   --tw-content: '+';
   content: var(--tw-content);
+}
+
+.before\:content-\[\'\'\]::before{
+  --tw-content: '';
+  content: var(--tw-content);
+}
+
+.hover\:bg-Marine-blue:hover{
+  --tw-bg-opacity: 1;
+  background-color: hsl(213 96% 18% / var(--tw-bg-opacity));
 }
 
 .hover\:bg-opacity-90:hover{
