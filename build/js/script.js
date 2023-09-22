@@ -279,3 +279,12 @@ changePlanDurationBtn.addEventListener('click', () => {
     getAddOnPrice();
     summary();
 });
+
+confirmBtn.addEventListener('click', () => {
+    const thankYouSection = document.querySelector('#thank-you-section');
+
+    currentStep.classList.remove('active');
+    thankYouSection.classList.add('active');
+
+    console.log(thankYouSection);
+});
